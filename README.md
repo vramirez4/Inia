@@ -72,3 +72,17 @@ Rscript ~/path_to_tool/ -i ~/path_to_genecoordinates_file –F ~/path_to_populat
 mkdir ~/IniaOutput
 
 Inia_Genomic_Toolkit.R -i ~/Inia_Genomic_Toolkit/TAS2RMAP.csv -o ~/IniaOutput -F ~/Inia_Genomic_Toolkit/Populations.csv
+
+
+
+# References
+
+The 1000 Genomes Project Consortium (2015) A global reference for human genetic variation. Nature, 526, 68–74.
+
+Danecek,P., Auton,A., Abecasis,G., Albers,C.A., Banks,E., DePristo,M.A., Handsaker,R.E., Lunter,G., Marth,G.T., Sherry,S.T., et al. (2011) The variant call format and VCFtools. Bioinformatics, 27, 2156–2158.
+
+Li,H. (2011) Tabix: Fast retrieval of sequence features from generic TAB-delimited files. Bioinformatics, 27, 718–719.
+
+McLaren,W., Gil,L., Hunt,S.E., Riat,H.S., Ritchie,G.R.S., Thormann,A., Flicek,P. and Cunningham,F. (2016) The Ensembl Variant Effect Predictor. Genome Biol., 17.
+
+Morgan,M., Lawrence,M., Shannon,P., Gogarten,S., Obenchain,V. and Carey,V. (2014) VariantAnnotation : a Bioconductor package for exploration and annotation of genetic variants . Bioinformatics, 30, 2076–2078.
