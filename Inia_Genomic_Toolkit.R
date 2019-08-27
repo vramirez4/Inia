@@ -1,8 +1,11 @@
 #!/usr/bin/env Rscript
+if ("optparse" %in% rownames(installed.packages()) == FALSE) {
+  install.packages("optparse", quiet = TRUE)
+} else{
+  system("echo \n")
+}
 
-currentdirectory = getwd()
-parentdirectory = system("which Inia_Genomic_Toolkit.R | xargs dirname", intern = TRUE)
-setwd(parentdirectory)
+suppressPackageStartupMessages(library(optparse))
 
 system("echo \n")
 system("echo \n")
@@ -16,27 +19,10 @@ system("echo '                                                 ;_\\  '")
 system("echo \n")
 system("echo \n")
 system("echo 'Welcome to Inia!'")
-Sys.sleep(time = 4)
 system("echo \n")
 system("echo \n")
 system("echo \n")
-
 system("echo \n")
-
-source("CleanTemporaryFiles.R")
-source("MergeFiles.R")
-source("POPULATIONSTATS.R")
-source("EXTRACTSNPS.R")
-
-setwd(currentdirectory)
-
-if ("optparse" %in% rownames(installed.packages()) == FALSE) {
-  install.packages("optparse", quiet = TRUE)
-} else{
-  system("echo \n")
-}
-
-suppressPackageStartupMessages(library(optparse))
 
 options_list = list(
   make_option(
@@ -60,6 +46,17 @@ options_list = list(
 )
 opt_parser = OptionParser(option_list = options_list)
 opt = parse_args(opt_parser)
+
+currentdirectory = getwd()
+
+source("CleanTemporaryFiles.R")
+source("MergeFiles.R")
+source("POPULATIONSTATS.R")
+source("EXTRACTSNPS.R")
+
+
+setwd(currentdirectory)
+
 if (is.null(opt$input)) {
   print_help(opt_parser)
   stop("Input file needs to be specified", call. = FALSE)
@@ -77,20 +74,7 @@ if (is.null(opt$out)) {
 }
 
 system("echo Checking installation of required R package")
-Sys.sleep(3)
 system("echo \n")
-system("echo \n")
-system("echo \n")
-
-system("echo \n")
-
-
-
-
-system("echo \n")
-system("echo \n")
-system("echo \n")
-
 system("echo \n")
 
 if ("VariantAnnotation" %in% rownames(installed.packages()) == FALSE) {
@@ -100,49 +84,25 @@ if ("VariantAnnotation" %in% rownames(installed.packages()) == FALSE) {
   system("echo 'VariantAnnotation was previously installed'")
 }
 
-system("echo \n")
-system("echo \n")
-system("echo \n")
-
-
 suppressPackageStartupMessages(library(VariantAnnotation))
-
 
 VCFPULL(GENEMAP)
 
 system("echo \n")
 system("echo \n")
-system("echo \n")
-system("echo \n")
-
 system("echo Cleaning VCF Files")
 BCFtools(GENEMAP)
 
 #Let user Know the script is working
-system("echo  ")
-system("echo  ")
-system("echo \n")
-system("echo \n")
-system("echo \n")
-system("echo \n")
-system("echo VCF Cleaning Complete-Only Biallelic SNPS Remain")
-
-system("echo '\n'")
-system("echo '\n'")
 system("echo '\n'")
 
 system("echo 'Initiating the Variant Effect Predictor'")
-Sys.sleep(3)
 system("echo '\n'")
 system("echo 'Accessing Functional Annotations and Predicting Variant Effects'")
-system("echo 'This may take a while'")
 system("echo '\n'")
 VEPPULL(GENEMAP)
 
-system("echo '\n'")
-system("echo '\n'")
 system("echo 'Variant Effect Prediction Is Completed")
-Sys.sleep(3)
 
 PIPUll(GENEMAP)
 HardyPull(GENEMAP)

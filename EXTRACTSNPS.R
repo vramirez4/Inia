@@ -1,7 +1,7 @@
 #TABIX FUNCTION
 VCFPULL = function(csv) {
   for (i in seq(1, dim(csv)[1])) {
-    tabixcommand = sprintf("tabix -h %s %s:%s-%s > %s.vcf", csv[i, 5], csv[i, 2], csv[i, 3], csv[i, 4], csv[i, 1])
+    tabixcommand = sprintf("tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp//release/20130502/ALL.chr%s.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz %s:%s-%s > %s.vcf", csv[i, 2], csv[i, 2], csv[i, 3], csv[i, 4], csv[i, 1])
     extractremark = sprintf("echo %s Extracted", csv[i, 1])
     system(tabixcommand)
     system(extractremark)

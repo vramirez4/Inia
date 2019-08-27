@@ -27,8 +27,8 @@ MergeFiles=function(csv){
       header = TRUE
     )
     Genevep = subset(vep,
-                     vep$Gene == sprintf('%s', csv[i, 6]) &
-                       vep$Feature == (sprintf('%s', csv[i, 7])))
+                     vep$Gene == sprintf('%s', csv[i, 5]) &
+                       vep$Feature == (sprintf('%s', csv[i, 6])))
     #Select functional predictions
     Highimpact = c(grep("HIGH*", Genevep$IMPACT))
     Moderate = c(grep("MODERATE*", Genevep$IMPACT))
