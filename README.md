@@ -34,9 +34,8 @@ The following installation is intended for users using Ubuntu Xenial 16.04 with 
       
       e.	Install cache using homo_sapiens_vep_90_GRCh37.tar.gz or species file number 59. This will take some time.
       
-      f.	Set the path to the ./vep command using: export PATH=$PATH:/path_to_vep
-      
-      g.	Add step 4 to the /.profile file
+      f.	Set the path to vep in your /.profle file by specifying the path to VEP on your local machine. Similar to the following: 
+                  export PATH = ~/ensembl-vep/:$PATH
       
 10)	Install R from the CRAN repository using the following instructions:
 
@@ -54,10 +53,15 @@ The following installation is intended for users using Ubuntu Xenial 16.04 with 
           
           ii.	sudo apt-get install r-base r-base-dev
     
-    
+11) Clone the Inia Repository to your local machine
+      git clone https://github.com/vramirez4/Inia
+
+12) set the path to Inia in your /,profile file by specifying the path to Inia on your local machine similar to the following line:
+      export PATH = ~/Inia/$PATH
+      
 # Usage of Tool:
 
-Inia_Genomic_Toolkit.R [options]
+Inia.R [options]
 
 --input -i Gene Coordinates csv
 
@@ -65,13 +69,13 @@ Inia_Genomic_Toolkit.R [options]
 
 --out -o Directory for output
 
-Rscript ~/path_to_tool/ -i ~/path_to_genecoordinates_file –F ~/path_to_population_file –o ~/path_to_desired_output
+Inia.R -i ~/path_to_genecoordinates_file –F ~/path_to_population_file –o ~/path_to_desired_output
 
 # Example:
 
 mkdir ~/IniaOutput
 
-Inia_Genomic_Toolkit.R -i ~/Inia_Genomic_Toolkit/TAS2RMAP.csv -o ~/IniaOutput -F ~/Inia_Genomic_Toolkit/Populations.csv
+Inia.R -i ~/Inia_Genomic_Toolkit/TAS2RMAP.csv -o ~/IniaOutput -F ~/Inia_Genomic_Toolkit/Populations.csv
 
 
 
