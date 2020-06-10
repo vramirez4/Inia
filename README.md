@@ -75,7 +75,7 @@ Inia.R -i ~/path_to_genecoordinates_file –F ~/path_to_population_file –o ~/p
 
 mkdir ~/IniaOutput
 
-Inia.R -i ~/Inia_Genomic_Toolkit/TAS2RMAP.csv -o ~/IniaOutput -F ~/Inia_Genomic_Toolkit/Populations.csv
+Inia.R -i ~/Inia/TAS2RMAP.csv -F ~/Inia/Populations.csv -o ~/IniaOutput
 
 
 
