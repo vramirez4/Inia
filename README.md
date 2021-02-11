@@ -34,8 +34,8 @@ The following installation is intended for users using Ubuntu Xenial 16.04 with 
       
       e.	Install cache using homo_sapiens_vep_90_GRCh37.tar.gz or species file number 59. This will take some time.
       
-      f.	Set the path to vep in your /.profle file by specifying the path to VEP on your local machine. Similar to the following: 
-                  export PATH = ~/ensembl-vep/:$PATH
+      f.	Set the path to vep in your shell configuration file by specifying the path to VEP on your local machine. Similar to the following: 
+                  export PATH = $PATH:~/ensembl-vep
       
 10)	Install R from the CRAN repository using the following instructions:
 
@@ -56,8 +56,8 @@ The following installation is intended for users using Ubuntu Xenial 16.04 with 
 11) Clone the Inia Repository to your local machine
       git clone https://github.com/vramirez4/Inia
 
-12) set the path to Inia in your /,profile file by specifying the path to Inia on your local machine similar to the following line:
-      export PATH = ~/Inia/$PATH
+12) set the path to Inia in your shell configuration files i.e. your ./bashrc file by specifying the path to Inia on your local machine similar to the following line:
+      export PATH = $PATH:~/Inia
       
 # Usage of Tool:
 
